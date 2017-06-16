@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">lineFollowerRobot_Controller</string>
+    <string name="scan_devices">搜索设备</string>
+    <string name="control_device">小车控制</string>
+    <string name="connect_device">连接</string>
+</resources>

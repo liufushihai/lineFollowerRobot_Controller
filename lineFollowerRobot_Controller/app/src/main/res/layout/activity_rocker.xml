@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.zscfirefly.linefollowerrobot_controller.activities.RockerActivity">
+
+    <com.example.zscfirefly.linefollowerrobot_controller.rocker.GameRocker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/game_rocker"
+        android:layout_centerInParent="true"/>
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@id/game_rocker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <SeekBar
+            android:id="@+id/sb_progress"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="15.0dip"
+            android:paddingRight="15.0dip"
+            android:progressDrawable="@xml/progress_holo_light"
+            android:thumb="@drawable/detail_icon_schedule_ball" />          //拖动条
+
+        <TextView
+            android:text="灵敏度：0"
+            android:id="@+id/tv_progress"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />         //灵敏度
+
+    </LinearLayout>
+
+</RelativeLayout>
