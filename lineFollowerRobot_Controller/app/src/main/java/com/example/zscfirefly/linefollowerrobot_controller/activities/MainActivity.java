@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         BleManager.getInstance().init(MainActivity.this);
-        //startScanAndBind();
 
        lv_devies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
@@ -86,10 +85,7 @@ public class MainActivity extends AppCompatActivity {
                tv_rssi.setText("信号强度："+ BleManager.getInstance().getmLeDeviceListAdapter().getItem(i).getRssi() + "db");
 
                cur_Dev_Name = BleManager.getInstance().getmLeDeviceListAdapter().getItem(i).getDeviceName();
-
                my_dev_index = i;
-
-              // Toast.makeText(MainActivity.this, i+"",Toast.LENGTH_SHORT).show();
            }
        });
     }
@@ -98,16 +94,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        //close();
-
-//        BleManager.getInstance().onBLEDeviceConnectionChange(BleManager.getInstance().getmBLEDevice()
-//                ,BleManager.STATE_CONNECTED,BleManager.STATE_DISCONNECTED);
         unRegisterReciver();
         BleManager.getInstance().clearBLEDevice();
         BleManager.getInstance().clearData();
         BleManager.getInstance().disconnect();
-        //BleManager.getInstance().closeBluetooth();
-
     }
 
     /**
@@ -130,29 +120,12 @@ public class MainActivity extends AppCompatActivity {
     public void clickHandler(View view){
         switch (view.getId()){
             case R.id.btn_search:
-              //  Toast.makeText(MainActivity.this,"btn_search",Toast.LENGTH_SHORT).show();
-
-                //BleManager.getInstance().prepareBLEDevice(uuidQppService,BleManager.getInstance());
                 startScanAndBind();    //扫描蓝牙
-
-//                setNotification(uuidQppService, uuidQppCharWrite);
-//                searchServices();
-
                 lv_devies.setAdapter(BleManager.getInstance().getmLeDeviceListAdapter());
-              //  new BleTasks().execute();   //后台任务类连接蓝牙设备
 
                 break;
 
             case R.id.btn_control:
-//                setNotification(uuidQppService, uuidQppCharWrite);
-//                searchServices();
-
-              //  Toast.makeText(MainActivity.this,"btn_control",Toast.LENGTH_SHORT).show();
-               // sendData("hello lineFollowerRobot_Controller!");
-             //   BleManager.getInstance().write("hello car!");
-
-//                setNotification(uuidQppService, uuidQppCharWrite);
-//                searchServices();
 
                 if(isConnected == true) {
                     Intent intent = new Intent(MainActivity.this, RockerActivity.class);
@@ -160,123 +133,15 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     Toast.makeText(MainActivity.this,"设备尚未连接！",Toast.LENGTH_SHORT).show();
                 }
-//
-//                Intent intent = new Intent(MainActivity.this, RockerActivity.class);
-//                startActivity(intent);
 
                 break;
 
             case R.id.btn_connect:
                 Log.d("cur_Dev_Name",cur_Dev_Name);
 
-//                setNotification(uuidQppService, uuidQppCharWrite);
-//                searchServices();
-
-//                if(cur_Dev_Name.equals(MY_DEV_NAME)){
-
-//                    BleManager.getInstance().prepareBLEDevice(uuidQppService,BleManager.getInstance());
-//                    BleManager.getInstance().setDevice(my_dev_index);
-//                    BleManager.getInstance().connect();
-//
-//                    BleManager.getInstance().prepareBLEDevice(uuidQppService,BleManager.getInstance());
-//                    BleManager.getInstance().setDevice(my_dev_index);
-//                    BleManager.getInstance().connect();
-
-//                    for(int i = 0; i < 10 ; i++)
-//                    {
-//                        BleManager.getInstance().prepareBLEDevice(uuidQppService,BleManager.getInstance());
-//                        BleManager.getInstance().setDevice(my_dev_index);
-//                        BleManager.getInstance().connect();
-//                    }
                 BleManager.getInstance().setDevice(my_dev_index);
                 BleManager.getInstance().prepareBLEDevice(uuidQppService,BleManager.getInstance());
-
                 BleManager.getInstance().connect();
-
-                /*
-                if(BleManager.getInstance().connect() == true){
-                    isConnected = true;
-                    Toast.makeText(MainActivity.this,"设备连接成功！",Toast.LENGTH_SHORT).show();
-                    Log.d("BLE_STATE********","BleManager.STATE_CONNECTED\n");
-                }else{
-                    BleManager.getInstance().prepareBLEDevice(uuidQppService,BleManager.getInstance());
-                    BleManager.getInstance().setDevice(my_dev_index);
-                    BleManager.getInstance().connect();
-                    if(BleManager.getInstance().connect() == false){
-                        Toast.makeText(MainActivity.this,"设备连接失败！",Toast.LENGTH_SHORT).show();
-                        Log.d("BLE_STATE********","BleManager.STATE_DISCONNECTED\n");
-                    }else{
-                        isConnected = true;
-                        Toast.makeText(MainActivity.this,"设备连接成功！",Toast.LENGTH_SHORT).show();
-                        Log.d("BLE_STATE********","BleManager.STATE_CONNECTED\n");
-                    }
-                }*/
-
-
-
-//                if(BleManager.getInstance().getConnectionState() == BleManager.STATE_CONNECTING){
-//                    Log.d("BLE_STATE********","BleManager.STATE_CONNECTING\n");
-//                }
-//                else if(BleManager.getInstance().getConnectionState()==BleManager.STATE_CONNECTED)
-//                {
-//                    isConnected = true;
-//                    Toast.makeText(MainActivity.this,"设备连接成功！",Toast.LENGTH_SHORT).show();
-//                    Log.d("BLE_STATE********","BleManager.STATE_CONNECTED\n");
-//                }else{
-//                    BleManager.getInstance().prepareBLEDevice(uuidQppService,BleManager.getInstance());
-//                    BleManager.getInstance().setDevice(my_dev_index);
-//                    BleManager.getInstance().connect();
-//
-//                    if(BleManager.getInstance().getConnectionState() == BleManager.STATE_DISCONNECTED){
-//                        isConnected = false;
-//                        Toast.makeText(MainActivity.this,"设备连接失败！",Toast.LENGTH_SHORT).show();
-//                        Log.d("BLE_STATE********","BleManager.STATE_DISCONNECT\n");
-//                    }
-//                }
-
-
-//                if(true == BleManager.getInstance().connect()){
-//                    isConnected = true;
-//                    Toast.makeText(MainActivity.this,"设备连接成功！",Toast.LENGTH_SHORT).show();
-//                }else{
-//                    isConnected = false;
-//                    Toast.makeText(MainActivity.this,"设备连接失败！",Toast.LENGTH_SHORT).show();
-//                }
-
-
-
-//                }
-//
-//        else{
-//                    Toast.makeText(MainActivity.this,"此设备无法连接！",Toast.LENGTH_SHORT).show();
-//                }
-
-
-
-
-//                if(BleManager.getInstance().getConnectionState() == BleManager.STATE_CONNECTED){
-//                    Toast.makeText(MainActivity.this,"蓝牙设备连接成功！",Toast.LENGTH_SHORT).show();
-//                }
-
-//                if(BleManager.STATE_CONNECTED == BleManager.getInstance().getmBLEDevice().getConnectionState()){
-//                    Toast.makeText(MainActivity.this,"蓝牙设备连接成功！",Toast.LENGTH_SHORT).show();
-//                }
-
-                //Toast.makeText(MainActivity.this,"btn_connect",Toast.LENGTH_SHORT).show();
-
-//                if (my_dev_index != (-1) &&
-//                        BleManager.getInstance().getmLeDeviceListAdapter().getItem(my_dev_index).getDeviceName().matches(MY_DEV_NAME) == true){
-//                    for (int j = 0; j < 10; j++) {
-//                        BleManager.getInstance().prepareBLEDevice(uuidQppService, BleManager.getInstance());
-//                        BleManager.getInstance().setDevice(my_dev_index);
-//                        BleManager.getInstance().connect();
-//                    }
-//                }
-
-
-//                if(BleManager.getInstance().getDeviceCount() > 0){
-//                   // new BleTasks().execute();   //后台任务类连接蓝牙设备
-//                }
 
                 break;
 
@@ -342,7 +207,6 @@ public class MainActivity extends AppCompatActivity {
         mScanAndBindStarted = true;
         BleManager.getInstance().clearData();
         BleManager.getInstance().scanLeDevice(true);
-        //Toast.makeText(this,BleManager.getInstance().getDeviceCount()+"",Toast.LENGTH_SHORT).show();
         registerReciver();
     }
 
@@ -365,10 +229,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean sendData(String value) {
         // 判断连接状态
         synchronized (sendDataLock) {
-            if (BleManager.getInstance().getConnectionState() != BLEDevice.STATE_CONNECTED) {
-//                Toast.makeText(MainAty.this,
-//                        R.string.connecting_hint, Toast.LENGTH_SHORT).show();
-            }
+            if (BleManager.getInstance().getConnectionState() != BLEDevice.STATE_CONNECTED) {}
             // 判断value是否为空
             if (value == null || value.equals(""))
                 return false;
@@ -377,11 +238,8 @@ public class MainActivity extends AppCompatActivity {
             if ( value.length() > DATALENGTH) {
                 preDatas = StringUtils.spilt(value, DATALENGTH);
                 dataIterator = preDatas.iterator();
-               // sendBroadcast(new Intent(SEND_COMPLETED));
                 return false;
             }
-            //System.out.println("sendvalue=" + value);
-            // 发送
 
             if (BleManager
                     .getInstance()
@@ -389,13 +247,9 @@ public class MainActivity extends AppCompatActivity {
                     .writeCharacteristic(UUID.fromString(uuidATService),
                             UUID.fromString(uuidATCharWrite), value) == false) {
                 runOnUiThread(new Runnable() {
-
                     @Override
                     public void run() {
                         // TODO Auto-generated method stub
-//                        Toast.makeText(MainAty.this,
-//                                R.string.write_text_send_err,
-//                                Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -495,28 +349,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 更新设备消息
-     */
-    private void updateDevMsg() {
-//        tv_ry01_devname.setText(BleManager.getInstance().getDeviceName());
-//        tv_ry01_devmac.setText(BleManager.getInstance().getDeviceAddress());
-//        // TODO
-//        int constate = BleManager.getInstance().getConnectionState();
-//        switch (constate) {
-//            case BLEDevice.STATE_CONNECTED:
-//                tv_ry01_devstate.setText("connected");
-//                break;
-//            case BLEDevice.STATE_DISCONNECTED:
-//                tv_ry01_devstate.setText("disconnected");
-//                break;
-//            case BLEDevice.STATE_CONNECTING:
-//                tv_ry01_devstate.setText("disconnected");
-//                break;
-//
-//        }
-    }
-
-    /**
      * 注册广播监听
      */
     public void registerReciver() {
@@ -585,8 +417,6 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
         for (BluetoothGattService serivce : services) {
-            // System.out.println("Service[" + i + "]"
-            // + serivce.getUuid().toString());
             i++;
         }
         return services;
@@ -621,10 +451,6 @@ public class MainActivity extends AppCompatActivity {
                             if(BleManager.getInstance().getConnectionState() == BleManager.STATE_CONNECTING){
                                 BleManager.getInstance().onBLEDeviceConnectionChange(BleManager.getInstance().getmBLEDevice(),BleManager.STATE_CONNECTING,BleManager.STATE_CONNECTED);
                             }
-
-//                            if (BleManager.getInstance().getConnectionState() == BleManager.STATE_CONNECTED) {
-//                                return true;
-//                            }
                         }
 
                         isConnected = true;
@@ -682,44 +508,6 @@ public class MainActivity extends AppCompatActivity {
 
             return;
         }
-
-//        String value = uartFragment.getEt_send_msg().getText().toString();
-//        if (value == null || value.equals("")) {
-//            return;
-//        }
-
-//        if (getSwitchStatus(R.id.hex_send_switch)) {
-//            value = value.toUpperCase();
-//            value = value.replace(" ", "");
-//            value = StringUtils.hexStr2Str(value);
-//
-//        }
-
-//        // 发送新行
-//        if (getSwitchStatus(R.id.send_unewline_switch)) {
-//            value = value + "\r\n";
-//        }
-
-       // System.out.println("send value str=" + value);
-//        if (BleManager.getInstance().write(value) == false) {
-//            runOnUiThread(new Runnable() {
-//
-//                @Override
-//                public void run() {
-//                    // TODO Auto-generated method stub
-//                    Toast.makeText(SerialTransmissionActivity.this,
-//                            R.string.write_text_send_err, Toast.LENGTH_SHORT)
-//                            .show();
-//                }
-//            });
-//        } else {
-//
-//            Message msg = handler.obtainMessage();
-//            msg.obj = value;
-//            handler.sendMessage(msg);
-//
-//        }
-
     }
 
     private static String CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";

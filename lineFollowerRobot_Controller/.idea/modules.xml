@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://E:\github-projects\lineFollowerRobot_Controller\lineFollowerRobot_Controller\app\app.iml" filepath="E:\github-projects\lineFollowerRobot_Controller\lineFollowerRobot_Controller\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lineFollowerRobot_Controller.iml" filepath="$PROJECT_DIR$/lineFollowerRobot_Controller.iml" />
+      <module fileurl="file://E:\github-projects\lineFollowerRobot_Controller\lineFollowerRobot_Controller\lineFollowerRobot_Controller.iml" filepath="E:\github-projects\lineFollowerRobot_Controller\lineFollowerRobot_Controller\lineFollowerRobot_Controller.iml" />
     </modules>
   </component>
 </project>

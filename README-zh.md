@@ -4,7 +4,7 @@
 
 这是一个基于Android平台开发的3Pi循迹机器人控制端。
 
-![3Pi循迹机器人(Android控制端)](http://oypvhzll7.bkt.clouddn.com/3Pi%E6%9C%BA%E5%99%A8%E4%BA%BA.png)
+![3Pi循迹机器人(Android控制端)](https://github.com/liufushihai/lineFollowerRobot_Controller/blob/master/Images/3Pi%E6%9C%BA%E5%99%A8%E4%BA%BA.png)
 
 ## 功能
 

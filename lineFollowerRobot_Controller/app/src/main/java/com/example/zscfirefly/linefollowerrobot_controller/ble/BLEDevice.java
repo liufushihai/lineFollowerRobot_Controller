@@ -53,7 +53,6 @@ public class BLEDevice {
 		SERVER_UUID = UUID.fromString(uuid);
 	}
 
-/*******************************************************/
 	/**
 	 * 官方函数原型
 	 * @return
@@ -70,7 +69,7 @@ public class BLEDevice {
 		}
 		return mBluetoothGatt;
 	}
-/***************************************************************/
+
 	@Override
 	public boolean equals(Object o) {
 		if (o == null || mDevice == null)

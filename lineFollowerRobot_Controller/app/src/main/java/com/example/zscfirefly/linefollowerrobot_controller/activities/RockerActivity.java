@@ -55,10 +55,6 @@ public class RockerActivity extends Activity implements GameRockerListener{
     TimerTask timerTask = new TimerTask() {
         @Override
         public void run() {
-            //Log.e(TIMER_TAG, "cur_X = " + cur_X + ", cur_Y = " + cur_Y);
-            //Log.e(TIMER_TAG,"Computed_Scale:" + Computed_Scale);
-           // BleManager.getInstance().write("X:" + cur_X + "      Y:" + cur_Y + "\n");
-            //BleManager.getInstance().write("A" + cur_X + "      Y:" + cur_Y + "\n");
 
             String data_str = "";
 
@@ -74,9 +70,6 @@ public class RockerActivity extends Activity implements GameRockerListener{
             }else if((-cur_X) >= 100){
                 cur_X = -100;
             }
-
-//            cur_Y *= Computed_Scale;
-//            cur_X *= Computed_Scale;
 
             cur_Y = ((int) cur_Y) * 1;
             cur_X = ((int) cur_X) * 1;
@@ -105,116 +98,6 @@ public class RockerActivity extends Activity implements GameRockerListener{
                 else{ data_str += "-100"; }
             }
 
-
-//            if(cur_Y >= 0 && cur_Y <= 100){
-//               // data_str = "A+0" + cur_Y;
-//                if(cur_Y >= 0&& cur_Y < 10){     data_str = "A+00" + (cur_Y/Computed_Scale);    }
-//                else{
-//                    if(cur_Y == 100){
-//                        //data_str = "A+" + (cur_Y/Computed_Scale);
-//                        if(Computed_Scale == 1){
-//                            data_str = "A+" + (cur_Y/Computed_Scale);
-//                        }else{
-//                            data_str = "A+0" + (cur_Y/Computed_Scale);
-//                        }
-//                    }
-//                    else{
-//                        //要根据Computed_Scale来进行判断
-//                        if((cur_Y/Computed_Scale) < 10){
-//                            data_str = "A+00" + (cur_Y/Computed_Scale);
-//                        }else{
-//                            data_str = "A+0" + (cur_Y/Computed_Scale);
-//                        }
-//                    }
-//                       // data_str = "A+0"+ (cur_Y/Computed_Scale);
-//                }
-//            }else{
-//                if((-cur_Y) >= 0 && (-cur_Y) < 10){     data_str = "A-00" + ((-cur_Y)/Computed_Scale);    }
-//                else{
-//                    if((-cur_Y) == 100) {
-//                        //data_str = "A" + ((cur_Y)/Computed_Scale);
-//                        if(Computed_Scale == 1){
-//                            data_str = "A" + ((cur_Y)/Computed_Scale);
-//                        }else{
-//                            data_str = "A-0" + ((-cur_Y)/Computed_Scale);
-//                        }
-//                    }
-//                    else{
-//                        //data_str = "A-0"+ ((-cur_Y)/Computed_Scale);
-//
-//                        if(((-cur_Y)/Computed_Scale) < 10){
-//                            data_str = "A-00"+ ((-cur_Y)/Computed_Scale);
-//                        }else{
-//                            data_str = "A-0"+ ((-cur_Y)/Computed_Scale);
-//                        }
-//                    }
-//                }
-//            }
-
-           // data_str = "A+000";
-
-//            if(cur_X >= 0 && cur_X <= 100){
-//                // data_str = "A+0" + cur_Y;
-//                if(cur_X >= 0&& cur_X < 10){     data_str += "+00" + (cur_X/Computed_Scale);    }
-//                else{
-//                    if(cur_X == 100){
-//                        //data_str = "A+" + (cur_Y/Computed_Scale);
-//                        if(Computed_Scale == 1){
-//                            data_str += "+" + (cur_X/Computed_Scale);
-//                        }else{
-//                            data_str += "+0" + (cur_X/Computed_Scale);
-//                        }
-//                    }
-//                    else{
-//                        //要根据Computed_Scale来进行判断
-//                        if((cur_X/Computed_Scale) < 10){
-//                            data_str += "+00" + (cur_X/Computed_Scale);
-//                        }else{
-//                            data_str += "+0" + (cur_X/Computed_Scale);
-//                        }
-//                    }
-//                    // data_str = "A+0"+ (cur_Y/Computed_Scale);
-//                }
-//            }else{
-//                if((-cur_X) >= 0 && (-cur_X) < 10){     data_str += "-00" + ((-cur_X)/Computed_Scale);    }
-//                else{
-//                    if((-cur_X) == 100) {
-//                        //data_str = "A" + ((cur_Y)/Computed_Scale);
-//                        if(Computed_Scale == 1){
-//                            data_str += "" + ((cur_X)/Computed_Scale);
-//                        }else{
-//                            data_str += "-0" + ((-cur_X)/Computed_Scale);
-//                        }
-//                    }
-//                    else{
-//                        //data_str = "A-0"+ ((-cur_Y)/Computed_Scale);
-//
-//                        if(((-cur_X)/Computed_Scale) < 10){
-//                            data_str += "-00"+ ((-cur_X)/Computed_Scale);
-//                        }else{
-//                            data_str += "-0"+ ((-cur_X)/Computed_Scale);
-//                        }
-//                    }
-//                }
-//            }
-
-//            if(cur_X >= 0 && cur_X <= 100){
-//                // data_str = "A+0" + cur_Y;
-//                if(cur_X >= 0&& cur_X < 10){     data_str += "+00" + (cur_X/Computed_Scale);    }
-//                else{
-//                    if(cur_X == 100) data_str = "+" + (cur_X/Computed_Scale);
-//                    else data_str += "+0"+ (cur_X/Computed_Scale);
-//                }
-//            }else{
-//                if((-cur_X) >= 0 && (-cur_X) < 10){     data_str += "-00" + ((-cur_X)/Computed_Scale);    }
-//                else{
-//                    if((-cur_X) == 100) data_str +=  ((cur_X)/Computed_Scale);
-//                    else data_str += "-0"+ ((-cur_X)/Computed_Scale);
-//                }
-//            }
-
-           // data_str += "-000";
-
             data_str += "\n";
 
             if(GameRocker.isTouched == true){
@@ -225,17 +108,7 @@ public class RockerActivity extends Activity implements GameRockerListener{
                 GameRocker.isStopped = false;
             }
 
-            //Log.d(TIMER_TAG, "X = " + cur_X + ", Y = " + cur_Y);
-            //Log.e(TIMER_TAG,"Computed_Scale:" + Computed_Scale);
             Log.d(TIMER_TAG,"data_str:" + data_str);
-
-
-            //test_str = "X = " + cur_X + ", Y = " + cur_Y + "\n";
-            //test_str = " Y = " + cur_Y + "\n";
-
-            //BleManager.getInstance().write("Computed_Scale:" + Computed_Scale + "\n");
-            //test_str = " X = " + cur_X + "\n";
-            //BleManager.getInstance().write(test_str);
         }
     };
 
@@ -264,12 +137,6 @@ public class RockerActivity extends Activity implements GameRockerListener{
             Init_Value = i;
             tv_progress.setText("灵敏度：" + Init_Value);
 
-//            if (i > 81) {
-//                Computed_Scale = 1;
-//            } else {
-//                Computed_Scale = (100 - i) / SENSITIVITY_RATIO;
-//            }
-
             Computed_Scale = ((float) i) / (100.0f);
 
             Log.d(TIMER_TAG, "Computed_Scale:" + Computed_Scale);
@@ -288,22 +155,12 @@ public class RockerActivity extends Activity implements GameRockerListener{
 
     @Override
     public void onDirection(float x, float y) {
-        //Log.e(TAG, "x = " + x + ", y = " + y);
 
         //Demo的坐标系的是左为Y轴的正半轴，下为X轴的正半轴,对获取的X,Y值修改一下，改成上为Y轴正半轴，右为X轴正半轴
-//        cur_X = (int) x;
-//        cur_Y = (int) y;
-
-//        cur_X = (int)(-y);
-//        cur_Y = (int)(-x);
-
         cur_X = (int) x;
         cur_Y = (int) (-y);
 
         cur_Y *= Computed_Scale;
         cur_X *= Computed_Scale;
-
-       // BleManager.getInstance().write("X:" + cur_X + "      Y:" + cur_Y + "\n");
-
     }
 }

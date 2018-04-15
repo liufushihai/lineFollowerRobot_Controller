@@ -139,49 +139,6 @@ public class BleManager implements BLEDeviceCallback {
 			return mScanAddress;
 		}
 
-//		@Override
-//		public void onLeScan(BluetoothDevice device, final int rssi,
-//				byte[] scanRecord) {
-//			final BluetoothDevice device_tmp = device;
-//			mHandler.post(new Runnable() {
-//
-//				@Override
-//				public void run() {
-//					// TODO Auto-generated method stub
-//					synchronized (mLeDeviceListAdapterLock) {
-//						final DeviceItem item = new DeviceItem(device_tmp, rssi);
-////						LogUtil.d(BleManager.this,
-////								" gg scan device " + item.getDeviceName() + " "
-////										+ item.getDeviceAddress() + " rssi"
-////										+ rssi);
-//						if (item.getDeviceAddress() != null) {
-//							int length = mLeDeviceListAdapter.getCount();
-//							int i = 0;
-//							boolean exist = false;
-//							for (i = 0; i < length; i++) {
-//								if (mLeDeviceListAdapter.getItem(i)
-//										.equals(item)) {
-//									exist = true;
-//									break;
-//								}
-//							}
-//							if (exist == false && device_tmp.getName() != null
-//									&& !device_tmp.getName().equals("")) {
-//								mLeDeviceListAdapter.add(item);
-//
-//							}
-//
-//						} else {
-////							LogUtil.d(BleManager.this,
-////									"scan device getDeviceAddress == null!");
-//						}
-//					}
-//				}
-//			});
-//
-//		}
-//
-
 
 		/*******************************************************my code start***********************************************************/
 		@Override
@@ -194,10 +151,6 @@ public class BleManager implements BLEDeviceCallback {
 					// TODO Auto-generated method stub
 					synchronized (mLeDeviceListAdapterLock) {
 						final DeviceItem item = new DeviceItem(device_tmp, rssi);
-//						LogUtil.d(BleManager.this,
-//								" gg scan device " + item.getDeviceName() + " "
-//										+ item.getDeviceAddress() + " rssi"
-//										+ rssi);
 						if (item.getDeviceAddress() != null) {
 							int length = mLeDeviceListAdapter.getCount();
 							Log.e("Length","Length is wrong"+length);
@@ -213,12 +166,8 @@ public class BleManager implements BLEDeviceCallback {
 							if (exist == false && device_tmp.getName() != null
 									&& !device_tmp.getName().equals("")) {
 								mLeDeviceListAdapter.add(item);
-
 							}
-
 						} else {
-//							LogUtil.d(BleManager.this,
-//									"scan device getDeviceAddress == null!");
 						}
 					}
 				}
@@ -439,8 +388,5 @@ public class BleManager implements BLEDeviceCallback {
 		if(bluetoothAdapter != null){
 			bluetoothAdapter.disable();
 		}
-//		if(mBluetoothAdapter != null){
-//			mBluetoothAdapter.disable();
-//		}
 	}
 }

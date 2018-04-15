@@ -4,7 +4,7 @@ Introduction
 
 Android Controller for 3Pi lineFollowerRobot. [中文版](https://github.com/liufushihai/lineFollowerRobot_Controller/blob/master/README-zh.md)
 
-![3Pi循迹机器人(Android控制端)](http://oypvhzll7.bkt.clouddn.com/3Pi%E6%9C%BA%E5%99%A8%E4%BA%BA.png)
+![3Pi循迹机器人(Android控制端)](https://github.com/liufushihai/lineFollowerRobot_Controller/blob/master/Images/3Pi%E6%9C%BA%E5%99%A8%E4%BA%BA.png)
 
 Features
 ---------------------
